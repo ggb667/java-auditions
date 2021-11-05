@@ -9,14 +9,14 @@ public class Mystery {
      * b) Write a Junit test case to prove it.
      * c) If there are errors, explain them & propose/provide a solution.
      */
-
     public String mystery(String num) {
         if (num == null) {
             return "N/A";
         }
         int len = num.length();
+        int numberOfCommas = (num.length()-1) / 3;
         int c = 0;
-        char[] sb = new char[len];
+        char[] sb = new char[len + numberOfCommas ];
         for (int i = 0; i < len; i++) {
             sb[c++] = num.charAt(i);
             if ((len - 1 - i) % 3 == 0 && i != len - 1) {
@@ -25,4 +25,20 @@ public class Mystery {
         }
         return new String(sb);
     }
+    //original code:
+    // public String mystery(String num) {
+    //     if (num == null) {
+    //         return "N/A";
+    //     }
+    //     int len = num.length();
+    //     int c = 0;
+    //     char[] sb = new char[len];
+    //     for (int i = 0; i < len; i++) {
+    //         sb[c++] = num.charAt(i);
+    //         if ((len - 1 - i) % 3 == 0 && i != len - 1) {
+    //             sb[c++] = ',';
+    //         }
+    //     }
+    //     return new String(sb);
+    // }
 }
